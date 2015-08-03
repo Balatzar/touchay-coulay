@@ -51,3 +51,12 @@ void ft_beginGame(void)
     printf("Bonjour !\nLes règles sont simples, il y a trois bateaux à détruire et 24 coups pour le faire.\n");
     printf("Les bateaux sont de taille 2, 3 et 4 blocks.\nBonne chance !\n\n");
 }
+
+int ft_checkBomb(char *bomb)
+{
+    if (!((bomb[0] >= 'a' && bomb[0] <= 'h') || (bomb[0] >= 'A' && bomb[0] <= 'H'))) // si le premier char n'est PAS entre a et h ou A et H
+        return(0);
+    if (!(bomb[0] >= '1' || bomb[0] <= '8')) // si le deuxieme char n'est PAS entre 1 et 8
+        return (0);
+    return (1);
+}
