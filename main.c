@@ -6,6 +6,7 @@ int main()
     char **grid;
     char **boats;
     int hits = 0;
+    int coups = 0;
 
     grid = ft_initGrid(); // initialise la grille vide
     boats = ft_generateBoats(); // genere aléatoirement les positions des bateaux
@@ -28,9 +29,16 @@ int main()
         }
         else
             grid = ft_miss(grid, bomb); // update la grid avec un manqué et affiche un message indiquant le coup manqué
-        if (hits = 9)
+        if (hits == 9)
             i = 24;
-        ft_printGrid(grid);
+        coups++;
+        free(bomb);
+        ft_printGrid(grid); // imprime la grille
    }
+   if (hits == 9)
+        printf("Bravo c'est gagné ! Et en seulement %i coups !", coups);
+    else
+        printf("Dommage c'est raté :/");
+    ft_printGrid(grid);
     return 0;
 }
