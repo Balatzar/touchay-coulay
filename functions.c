@@ -45,3 +45,9 @@ char **ft_initGrid(void)
     }
     return (grid);
 }
+
+void ft_beginGame(void)
+{
+    printf("Bonjour !\nLes règles sont simples, il y a trois bateaux à détruire et 24 coups pour le faire.\n");
+    printf("Les bateaux sont de taille 2, 3 et 4 blocks.\nBonne chance !\n\n");
+}

@@ -21,8 +21,8 @@ int main()
         do
         {
             if (error == 0)
-                ft_putError("Veuillez inscrire une position correcte et appuyer sur Entrée (ex : A1)\n");
-            printf("Quelle position voulez-vous bombarder ?\n");
+                ft_putError("\nVeuillez inscrire une position correcte et appuyer sur Entrée (ex : A1)\n");
+            printf("\nQuelle position voulez-vous bombarder ?\n");
             scanf("%2s", bomb);
             bomb[2] = '\0';
             error = ft_checkBomb(bomb);// vérifie si la position donnée est valide, retourne 1 si bon
@@ -31,7 +31,7 @@ int main()
         if (ft_checkHit(boats, bomb)) // renvoit un si le tir touche un navire
         {
             ++hits;
-            grid = ft_hit(grid, bomb); // update la grid avec un touché et affiche un message indiquant le coup réussi
+/           grid = ft_hit(grid, bomb); // update la grid avec un touché et affiche un message indiquant le coup réussi
         }
         else
             grid = ft_miss(grid, bomb); // update la grid avec un manqué et affiche un message indiquant le coup manqué
@@ -39,13 +39,13 @@ int main()
             i = 24;
         ++coups;
         free(bomb);
-        printf("Il vous reste %i coups.\n", 24 - j);
+        printf("\nIl vous reste %i coups.\n", 24 - coups);
         ft_printGrid(grid); // imprime la grille
    }
    if (hits == 9)
-        printf("Bravo c'est gagné ! Et en seulement %i coups !\n", coups);
+        printf("\nBravo c'est gagné ! Et en seulement %i coups !\n", coups);
     else
-        printf("Dommage c'est raté :/\n");
+        printf("\nDommage c'est raté :/\n");
     ft_printGrid(grid);
     return 0;
 }
