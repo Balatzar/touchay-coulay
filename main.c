@@ -1,5 +1,5 @@
 #include "header.h"
-/*
+
 int main()
 {
     char *bomb;
@@ -8,6 +8,7 @@ int main()
     int hits = 0;
     int coups = 0;
     int i = 0;
+    int error = 1;
 
     grid = ft_initGrid(); // initialise la grille vide
     boats = ft_generateBoats(); // genere aléatoirement les positions des bateaux
@@ -19,11 +20,14 @@ int main()
         bomb = (char*)malloc(sizeof(char) * 3);
         do
         {
+            if (error == 0)
+                ft_putError("Veuillez inscrire une position correcte et appuyer sur Entrée (ex : A1)\n");
             printf("Quelle position voulez-vous bombarder ?\n");
             scanf("%2s", bomb);
             bomb[2] = '\0';
+            error = ft_checkBomb(bomb);// vérifie si la position donnée est valide, retourne 1 si bon
         }
-        while (ft_checkBomb(bomb) != 1); // vérifie si la position donnée est valide et la convertit en char majuscules
+        while (error != 1);
         if (ft_checkHit(boats, bomb)) // renvoit un si le tir touche un navire
         {
             ++hits;
@@ -33,7 +37,7 @@ int main()
             grid = ft_miss(grid, bomb); // update la grid avec un manqué et affiche un message indiquant le coup manqué
         if (hits == 9)
             i = 24;
-        coups++;
+        ++coups;
         free(bomb);
         printf("Il vous reste %i coups.\n", 24 - j);
         ft_printGrid(grid); // imprime la grille
@@ -44,14 +48,4 @@ int main()
         printf("Dommage c'est raté :/\n");
     ft_printGrid(grid);
     return 0;
-}
-*/
-
-int main()
-{
-    char **grid;
-
-    grid = ft_initGrid();
-    ft_printGrid(grid);
-    return (0);
 }

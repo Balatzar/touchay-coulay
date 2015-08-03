@@ -22,7 +22,7 @@ Le joueur a 24 coups pour trouver 3 bateaux (tailles 2, 3 et 4 blocks) dans une 
 
 ###Fonctionnalités futures
 
-* Rajouter une contrainte de temps et différents score accordés en fonction de la vitesse.
+* Rajouter une contrainte de temps et différents scores accordés en fonction de la vitesse.
 
 * Rajouter d'autres modes de jeu (grille plus grande, plus de bateaux, mode dément...).
 
