@@ -1,5 +1,5 @@
 #include "header.h"
-
+/*
 int main()
 {
     char *bomb;
@@ -19,7 +19,7 @@ int main()
         bomb = (char*)malloc(sizeof(char) * 3);
         do
         {
-            printf("Quelle position voulez-vous bombarder ?");
+            printf("Quelle position voulez-vous bombarder ?\n");
             scanf("%2s", bomb);
             bomb[2] = '\0';
         }
@@ -35,12 +35,23 @@ int main()
             i = 24;
         coups++;
         free(bomb);
+        printf("Il vous reste %i coups.\n", 24 - j);
         ft_printGrid(grid); // imprime la grille
    }
    if (hits == 9)
-        printf("Bravo c'est gagné ! Et en seulement %i coups !", coups);
+        printf("Bravo c'est gagné ! Et en seulement %i coups !\n", coups);
     else
-        printf("Dommage c'est raté :/");
+        printf("Dommage c'est raté :/\n");
     ft_printGrid(grid);
     return 0;
+}
+*/
+
+int main()
+{
+    char **grid;
+
+    grid = ft_initGrid();
+    ft_printGrid(grid);
+    return (0);
 }

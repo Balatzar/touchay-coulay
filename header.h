@@ -11,5 +11,6 @@ int ft_checkBomb(char *bomb);
 int ft_checkHit(char **boats, char *bomb);
 char **ft_hit(char **grid, char *bomb);
 char **ft_miss(char **grid, char *bomb);
+void ft_putError(char *str);
 
 #endif // HEADER_H
