@@ -31,7 +31,7 @@ int main()
         if (ft_checkHit(boats, bomb)) // renvoit un si le tir touche un navire
         {
             ++hits;
-/           grid = ft_hit(grid, bomb); // update la grid avec un touché et affiche un message indiquant le coup réussi
+            grid = ft_hit(grid, bomb); // update la grid avec un touché et affiche un message indiquant le coup réussi
         }
         else
             grid = ft_miss(grid, bomb); // update la grid avec un manqué et affiche un message indiquant le coup manqué
