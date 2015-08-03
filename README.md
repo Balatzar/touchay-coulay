@@ -32,6 +32,6 @@ Le joueur a 24 coups pour trouver 3 bateaux (tailles 2, 3 et 4 blocks) dans une 
 
 ###Liens utiles
 
-* (Formatter du markdown pour le readme)[https://help.github.com/articles/markdown-basics/]
+* [Formatter du markdown pour le readme](https://help.github.com/articles/markdown-basics/)
 
-* (Git pour Windows)[https://msysgit.github.io/]
+* [Git pour Windows](https://msysgit.github.io/)
