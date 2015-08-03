@@ -7,12 +7,14 @@ int main()
     char **boats;
     int hits = 0;
     int coups = 0;
+    int i = 0;
 
     grid = ft_initGrid(); // initialise la grille vide
     boats = ft_generateBoats(); // genere aléatoirement les positions des bateaux
-    ft_beginGame(); // affiche les regles et la grille vide
+    ft_beginGame(); // affiche les regles
+    ft_printGrid(grid);
 
-   for (i = 1, i <= 24, ++i)
+   for (i = 1; i <= 24; ++i)
    {
         bomb = (char*)malloc(sizeof(char) * 3);
         do
