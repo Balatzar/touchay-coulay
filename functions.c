@@ -95,3 +95,17 @@ int ft_checkHit(char **boats, char *bomb)
     }
     return (0);
 }
+
+char **ft_hit(char **grid, char *bomb)
+{
+    int i = 0;
+    int j = 0;
+
+    if (bomb[0] >= 'a' && <= 'z')
+        i = bomb[0] - 96;
+    else
+        i = bomb[0] - 64;
+    j = bomb[0] - '0';
+    grid[i][j] = 'x'
+    return (grid);
+}
