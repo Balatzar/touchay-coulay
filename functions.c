@@ -60,3 +60,15 @@ int ft_checkBomb(char *bomb)
         return (0);
     return (1);
 }
+
+char **ft_generateBoats(void)
+{
+    // génération de positions fixes pour tester
+    char **boats;
+
+    boats = (char**)malloc(sizeof(char*) * 3);
+    boats[0] = "2325";
+    boats[1] = "425262";
+    boats[2] = "74757677";
+    return (boats);
+}

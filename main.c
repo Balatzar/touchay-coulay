@@ -11,8 +11,8 @@ int main()
     int error = 1;
 
     grid = ft_initGrid(); // initialise la grille vide
-    boats = ft_generateBoats(); // genere aléatoirement les positions des bateaux
-    ft_beginGame(); // affiche les regles
+    boats = ft_generateBoats(); // genère aléatoirement les positions des bateaux
+    ft_beginGame(); // affiche les règles
     ft_printGrid(grid);
 
    for (i = 1; i <= 24; ++i)
