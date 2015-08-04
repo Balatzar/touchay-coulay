@@ -72,3 +72,26 @@ char **ft_generateBoats(void)
     boats[2] = "74757677";
     return (boats);
 }
+
+int ft_checkHit(char **boats, char *bomb)
+{
+    int i = 0;
+    int j = 0;
+
+    if (bomb[0] >= 'a' && <= 'z')
+        bomb[0] -= 48;
+    else
+        bomb[0] -= 16;
+    while (i < 3)
+    {
+        while (boats[i][j])
+        {
+            if ((boats[i][j] == bomb[0]) && (boats[i][j + 1] == bomb[1]))
+                return (1);
+            j += 2;
+        }
+        j = 0;
+        ++i;
+    }
+    return (0);
+}
