@@ -109,3 +109,17 @@ char **ft_hit(char **grid, char *bomb)
     grid[i][j] = 'x'
     return (grid);
 }
+
+char **ft_miss(char **grid, char *bomb)
+{
+    int i = 0;
+    int j = 0;
+
+    if (bomb[0] >= 'a' && <= 'z')
+        i = bomb[0] - 96;
+    else
+        i = bomb[0] - 64;
+    j = bomb[0] - '0';
+    grid[i][j] = 'o'
+    return (grid);
+}
