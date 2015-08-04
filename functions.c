@@ -56,7 +56,7 @@ int ft_checkBomb(char *bomb)
 {
     if (!((bomb[0] >= 'a' && bomb[0] <= 'h') || (bomb[0] >= 'A' && bomb[0] <= 'H'))) // si le premier char n'est PAS entre a et h ou A et H
         return(0);
-    if (!(bomb[0] >= '1' || bomb[0] <= '8')) // si le deuxieme char n'est PAS entre 1 et 8
+    if (!(bomb[1] >= '1' && bomb[1] <= '8')) // si le deuxieme char n'est PAS entre 1 et 8
         return (0);
     return (1);
 }
@@ -67,24 +67,25 @@ char **ft_generateBoats(void)
     char **boats;
 
     boats = (char**)malloc(sizeof(char*) * 3);
-    boats[0] = "2325";
-    boats[1] = "425262";
-    boats[2] = "74757677";
+    boats[0] = "2325\0";
+    boats[1] = "425262\0";
+    boats[2] = "74757677\0";
     return (boats);
 }
 
 int ft_checkHit(char **boats, char *bomb)
 {
+
     int i = 0;
     int j = 0;
 
-    if (bomb[0] >= 'a' && <= 'z')
+    if (bomb[0] >= 'a' && bomb[0] <= 'z')
         bomb[0] -= 48;
     else
         bomb[0] -= 16;
     while (i < 3)
     {
-        while (boats[i][j])
+        while (boats[i][j - 1])
         {
             if ((boats[i][j] == bomb[0]) && (boats[i][j + 1] == bomb[1]))
                 return (1);
@@ -101,12 +102,12 @@ char **ft_hit(char **grid, char *bomb)
     int i = 0;
     int j = 0;
 
-    if (bomb[0] >= 'a' && <= 'z')
+    if (bomb[0] >= 'a' && bomb[0] <= 'z')
         i = bomb[0] - 96;
     else
         i = bomb[0] - 64;
     j = bomb[0] - '0';
-    grid[i][j] = 'x'
+    grid[i][j] = 'x';
     return (grid);
 }
 
@@ -115,11 +116,11 @@ char **ft_miss(char **grid, char *bomb)
     int i = 0;
     int j = 0;
 
-    if (bomb[0] >= 'a' && <= 'z')
+    if (bomb[0] >= 'a' && bomb[0] <= 'z')
         i = bomb[0] - 96;
     else
         i = bomb[0] - 64;
     j = bomb[0] - '0';
-    grid[i][j] = 'o'
+    grid[i][j] = 'o';
     return (grid);
 }
