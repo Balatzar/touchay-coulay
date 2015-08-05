@@ -32,9 +32,13 @@ int main()
         {
             ++hits;
             grid = ft_hit(grid, bomb); // update la grid avec un touché et affiche un message indiquant le coup réussi
+            printf("\nTouché !\n");
         }
         else
+            {
+            printf("\nRaté !\n");
             grid = ft_miss(grid, bomb); // update la grid avec un manqué et affiche un message indiquant le coup manqué
+            }
         if (hits == 9)
             i = 24;
         ++coups;
@@ -43,9 +47,9 @@ int main()
         ft_printGrid(grid); // imprime la grille
    }
    if (hits == 9)
-        printf("\nBravo c'est gagné ! Et en seulement %i coups !\n", coups);
+        printf("\nBravo c'est gagné ! Et en seulement %i coups !\n\n", coups);
     else
-        printf("\nDommage c'est raté :/\n");
+        printf("\nDommage c'est raté :/\n\n");
     ft_printGrid(grid);
     return 0;
 }
