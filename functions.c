@@ -11,12 +11,6 @@ void ft_printGrid(char **grid)
     }
 }
 
-void ft_putError(char *str)
-{
-    while (*str++)
-        write (2, str - 1, 1);
-}
-
 char **ft_initGrid(void)
 {
     char **grid;
@@ -52,12 +46,28 @@ void ft_beginGame(void)
     printf("Les bateaux sont de taille 2, 3 et 4 blocks.\nBonne chance !\n\n");
 }
 
-int ft_checkBomb(char *bomb)
+int ft_checkBomb(t_list *elem, char *bomb)
 {
     if (!((bomb[0] >= 'a' && bomb[0] <= 'h') || (bomb[0] >= 'A' && bomb[0] <= 'H'))) // si le premier char n'est PAS entre a et h ou A et H
         return(0);
     if (!(bomb[1] >= '1' && bomb[1] <= '8')) // si le deuxieme char n'est PAS entre 1 et 8
         return (0);
+    if (ft_checkList(elem, bomb) == 0)
+        return (0);
+    return (1);
+}
+
+int ft_checkList(t_list *elem, char *cmp)
+{
+    while (elem != NULL)
+    {
+        if (elem->data == cmp)
+        {
+            printf("Vous avez déjà bombardé cette position.\n");
+            return (0);
+        }
+        elem = elem->next;
+    }
     return (1);
 }
 

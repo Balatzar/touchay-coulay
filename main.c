@@ -9,6 +9,10 @@ int main()
     int coups = 0;
     int i = 0;
     int error = 1;
+    t_list *elem; // liste pour contenir les coups joués
+
+    elem = (t_list*)malloc(sizeof(t_list));
+    elem = NULL;
 
     grid = ft_initGrid(); // initialise la grille vide
     boats = ft_generateBoats(); // genère aléatoirement les positions des bateaux
@@ -17,6 +21,8 @@ int main()
 
    for (i = 1; i <= 24; ++i)
    {
+
+        printf("%s\n", elem->data);
         bomb = (char*)malloc(sizeof(char) * 3);
         do
         {
@@ -25,9 +31,10 @@ int main()
             printf("\nQuelle position voulez-vous bombarder ?\n\n");
             scanf("%2s", bomb);
             bomb[2] = '\0';
-            error = ft_checkBomb(bomb);// vérifie si la position donnée est valide, retourne 1 si bon
+            error = ft_checkBomb(elem, bomb);// vérifie si la position donnée est valide, retourne 1 si bon
         }
         while (error != 1);
+        elem = ft_addElem(elem, bomb);
         if (ft_checkHit(boats, bomb)) // renvoit 1 si le tir touche un navire
         {
             ++hits;
