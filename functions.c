@@ -67,7 +67,7 @@ char **ft_generateBoats(void)
     char **boats;
 
     boats = (char**)malloc(sizeof(char*) * 3);
-    boats[0] = "2325\0";
+    boats[0] = "1112\0";
     boats[1] = "425262\0";
     boats[2] = "74757677\0";
     return (boats);
@@ -79,14 +79,13 @@ int ft_checkHit(char **boats, char *bomb)
     int i = 0;
     int j = 0;
 
-// premier segfault ici
-    if (bomb[0] >= 'a' && bomb[0] <= 'z')
-        bomb[0] -= 48;
+    if (bomb[0] >= 'a' && bomb[0] <= 'h')
+        bomb[0] = '0' + (bomb[0] - 96); // ya surement plus simple...
     else
-        bomb[0] -= 16;
+        bomb[0] = '0' + (bomb[0] - 64);
     while (i < 3)
     {
-        while (boats[i][j - 1])
+        while (boats[i][j])
         {
             if ((boats[i][j] == bomb[0]) && (boats[i][j + 1] == bomb[1]))
                 return (1);
@@ -103,11 +102,14 @@ char **ft_hit(char **grid, char *bomb)
     int i = 0;
     int j = 0;
 
-    if (bomb[0] >= 'a' && bomb[0] <= 'z')
-        i = bomb[0] - 96;
+    if (bomb[0] >= 'a' && bomb[0] <= 'h')
+        bomb[0] = '0' + (bomb[0] - 96);
     else
-        i = bomb[0] - 64;
-    j = bomb[0] - '0';
+        bomb[0] = '0' + (bomb[0] - 64);
+    i = bomb[0] - 32;
+    j = bomb[1] - 48 + (1 * (bomb[1] - 48));
+    printf("i = %i\n", i);
+    printf("j = %i\n", j);
     grid[i][j] = 'x';
     return (grid);
 }
@@ -117,11 +119,14 @@ char **ft_miss(char **grid, char *bomb)
     int i = 0;
     int j = 0;
 
-    if (bomb[0] >= 'a' && bomb[0] <= 'z')
-        i = bomb[0] - 96;
+    if (bomb[0] >= 'a' && bomb[0] <= 'h')
+        bomb[0] = '0' + (bomb[0] - 96);
     else
-        i = bomb[0] - 64;
-    j = bomb[0] - '0';
+        bomb[0] = '0' + (bomb[0] - 64);
+    i = bomb[0] - 32;
+    j = bomb[1] - 48 + (1 * (bomb[1] - 48));
+    printf("i = %i\n", i);
+    printf("j = %i\n", j);
     grid[i][j] = 'o';
     return (grid);
 }

@@ -31,7 +31,7 @@ int main()
         if (ft_checkHit(boats, bomb)) // renvoit un si le tir touche un navire
         {
             ++hits;
-            printf("%i\n", hits);
+            printf("hits : %i\n", hits);
             grid = ft_hit(grid, bomb); // update la grid avec un touché et affiche un message indiquant le coup réussi
         }
         else
@@ -40,7 +40,7 @@ int main()
             i = 24;
         ++coups;
         free(bomb);
-        printf("\nIl vous reste %i coups.\n", 24 - coups);
+        printf("\nIl vous reste %i coups.\n\n", 24 - coups);
         ft_printGrid(grid); // imprime la grille
    }
    if (hits == 9)
