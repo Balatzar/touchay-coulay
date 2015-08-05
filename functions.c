@@ -48,7 +48,7 @@ char **ft_initGrid(void)
 
 void ft_beginGame(void)
 {
-    printf("Bonjour !\nLes règles sont simples, il y a trois bateaux à détruire et 24 coups pour le faire.\n");
+    printf("Bonjour !\nLes rÃ¨gles sont simples, il y a trois bateaux Ã  dÃ©truire et 24 coups pour le faire.\n");
     printf("Les bateaux sont de taille 2, 3 et 4 blocks.\nBonne chance !\n\n");
 }
 
@@ -63,7 +63,7 @@ int ft_checkBomb(char *bomb)
 
 char **ft_generateBoats(void)
 {
-    // génération de positions fixes pour tester
+    // gÃ©nÃ©ration de positions fixes pour tester
     char **boats;
 
     boats = (char**)malloc(sizeof(char*) * 3);

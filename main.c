@@ -11,8 +11,8 @@ int main()
     int error = 1;
 
     grid = ft_initGrid(); // initialise la grille vide
-    boats = ft_generateBoats(); // genère aléatoirement les positions des bateaux
-    ft_beginGame(); // affiche les règles
+    boats = ft_generateBoats(); // genÃ¨re alÃ©atoirement les positions des bateaux
+    ft_beginGame(); // affiche les rÃ¨gles
     ft_printGrid(grid);
 
    for (i = 1; i <= 24; ++i)
@@ -21,24 +21,24 @@ int main()
         do
         {
             if (error == 0)
-                ft_putError("\nVeuillez inscrire une position correcte et appuyer sur Entrée (ex : A1)\n");
+                ft_putError("\nVeuillez inscrire une position correcte et appuyer sur EntrÃ©e (ex : A1)\n");
             printf("\nQuelle position voulez-vous bombarder ?\n\n");
             scanf("%2s", bomb);
             bomb[2] = '\0';
-            error = ft_checkBomb(bomb);// vérifie si la position donnée est valide, retourne 1 si bon
+            error = ft_checkBomb(bomb);// vÃ©rifie si la position donnÃ©e est valide, retourne 1 si bon
         }
         while (error != 1);
-        if (ft_checkHit(boats, bomb)) // renvoit un si le tir touche un navire
+        if (ft_checkHit(boats, bomb)) // renvoit 1 si le tir touche un navire
         {
             ++hits;
-            grid = ft_hit(grid, bomb); // update la grid avec un touché et affiche un message indiquant le coup réussi
-            printf("\nTouché !\n");
+            grid = ft_hit(grid, bomb); // update la grid avec un touchÃ© et affiche un message indiquant le coup rÃ©ussi
+            printf("\nTouchÃ© !\n");
         }
         else
-            {
-            printf("\nRaté !\n");
-            grid = ft_miss(grid, bomb); // update la grid avec un manqué et affiche un message indiquant le coup manqué
-            }
+        {
+            printf("\nRatÃ© !\n");
+            grid = ft_miss(grid, bomb); // update la grid avec un manquÃ© et affiche un message indiquant le coup manquÃ©
+        }
         if (hits == 9)
             i = 24;
         ++coups;
@@ -47,9 +47,9 @@ int main()
         ft_printGrid(grid); // imprime la grille
    }
    if (hits == 9)
-        printf("\nBravo c'est gagné ! Et en seulement %i coups !\n\n", coups);
+        printf("\nBravo c'est gagnÃ© ! Et en seulement %i coups !\n\n", coups);
     else
-        printf("\nDommage c'est raté :/\n\n");
+        printf("\nDommage c'est ratÃ© :/\n\n");
     ft_printGrid(grid);
     return 0;
 }
