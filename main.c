@@ -22,7 +22,7 @@ int main()
         {
             if (error == 0)
                 ft_putError("\nVeuillez inscrire une position correcte et appuyer sur Entrée (ex : A1)\n");
-            printf("\nQuelle position voulez-vous bombarder ?\n");
+            printf("\nQuelle position voulez-vous bombarder ?\n\n");
             scanf("%2s", bomb);
             bomb[2] = '\0';
             error = ft_checkBomb(bomb);// vérifie si la position donnée est valide, retourne 1 si bon
@@ -31,7 +31,6 @@ int main()
         if (ft_checkHit(boats, bomb)) // renvoit un si le tir touche un navire
         {
             ++hits;
-            printf("hits : %i\n", hits);
             grid = ft_hit(grid, bomb); // update la grid avec un touché et affiche un message indiquant le coup réussi
         }
         else

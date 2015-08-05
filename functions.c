@@ -108,8 +108,6 @@ char **ft_hit(char **grid, char *bomb)
         bomb[0] = '0' + (bomb[0] - 64);
     i = bomb[0] - 32;
     j = bomb[1] - 48 + (1 * (bomb[1] - 48));
-    printf("i = %i\n", i);
-    printf("j = %i\n", j);
     grid[i][j] = 'x';
     return (grid);
 }
@@ -125,8 +123,6 @@ char **ft_miss(char **grid, char *bomb)
         bomb[0] = '0' + (bomb[0] - 64);
     i = bomb[0] - 32;
     j = bomb[1] - 48 + (1 * (bomb[1] - 48));
-    printf("i = %i\n", i);
-    printf("j = %i\n", j);
     grid[i][j] = 'o';
     return (grid);
 }
