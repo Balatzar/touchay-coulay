@@ -79,6 +79,7 @@ int ft_checkHit(char **boats, char *bomb)
     int i = 0;
     int j = 0;
 
+// premier segfault ici
     if (bomb[0] >= 'a' && bomb[0] <= 'z')
         bomb[0] -= 48;
     else
