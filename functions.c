@@ -59,9 +59,9 @@ int ft_checkBomb(t_list *elem, char *bomb)
 
 int ft_checkList(t_list *elem, char *cmp)
 {
-    while (elem != NULL)
+    while (elem)
     {
-        if (elem->data == cmp)
+        if ((elem->data[0] == cmp[0]) && (elem->data[1] == cmp[1]))
         {
             printf("Vous avez déjà bombardé cette position.\n");
             return (0);

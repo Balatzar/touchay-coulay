@@ -5,15 +5,19 @@ int main()
     char *bomb;
     char **grid;
     char **boats;
+    char *tmp;
     int hits = 0;
     int coups = 0;
     int i = 0;
     int error = 1;
     t_list *elem; // liste pour contenir les coups joués
+    t_list **list;
 
-    elem = (t_list*)malloc(sizeof(t_list));
+    if (!(elem = (t_list*)malloc(sizeof(t_list))))
+        ft_putError("malloc 1 failed");
     elem = NULL;
-
+    elem = ft_addElem(elem, "zz");
+    printf("elem = %s\n", elem->data);
     grid = ft_initGrid(); // initialise la grille vide
     boats = ft_generateBoats(); // genère aléatoirement les positions des bateaux
     ft_beginGame(); // affiche les règles
@@ -21,8 +25,7 @@ int main()
 
    for (i = 1; i <= 24; ++i)
    {
-
-        printf("%s\n", elem->data);
+        tmp = (char*)malloc(sizeof(char) * 3);
         bomb = (char*)malloc(sizeof(char) * 3);
         do
         {
@@ -34,7 +37,6 @@ int main()
             error = ft_checkBomb(elem, bomb);// vérifie si la position donnée est valide, retourne 1 si bon
         }
         while (error != 1);
-        elem = ft_addElem(elem, bomb);
         if (ft_checkHit(boats, bomb)) // renvoit 1 si le tir touche un navire
         {
             ++hits;
@@ -49,9 +51,13 @@ int main()
         if (hits == 9)
             i = 24;
         ++coups;
-        free(bomb);
+        tmp[0] = bomb[0] + 64;
+        tmp[1] = bomb[1];
+        elem = ft_addElem(elem, tmp);
+        printf("bomb = %s, elem = %s\n", bomb, elem->data);
+   //     free(bomb);
         printf("\nIl vous reste %i coups.\n\n", 24 - coups);
-        ft_printGrid(grid); // imprime la grille
+        ft_printGrid(grid); // imprime la grille2
    }
    if (hits == 9)
         printf("\nBravo c'est gagné ! Et en seulement %i coups !\n\n", coups);
