@@ -6,8 +6,6 @@
 
 * Dire si un bateau a été détruit
 
-* Compter comme une position invalide une position déjà donnée
-
 ###Description :
 
 Jeu similaire au classique touché-coulé mais avec un seul joueur contre l'ordinateur.
