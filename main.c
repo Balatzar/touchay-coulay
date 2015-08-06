@@ -4,12 +4,14 @@ int main()
 {
     char *bomb;
     char **grid;
-    char **boats;
+    char **boat;
     char *tmp;
     int hits = 0;
     int coups = 0;
     int i = 0;
     int error = 1;
+    int index = 0;
+    int *nbHits[4] = {0,0,0,0};
     t_list *elem; // liste pour contenir les coups joués
     t_list **list;
 
@@ -17,9 +19,8 @@ int main()
         ft_putError("malloc 1 failed");
     elem = NULL;
     elem = ft_addElem(elem, "zz");
-    printf("elem = %s\n", elem->data);
     grid = ft_initGrid(); // initialise la grille vide
-    boats = ft_generateBoats(); // genère aléatoirement les positions des bateaux
+    boat = ft_generateBoats(); // genère aléatoirement les positions des bateaux
     ft_beginGame(); // affiche les règles
     ft_printGrid(grid);
 
@@ -37,11 +38,16 @@ int main()
             error = ft_checkBomb(elem, bomb);// vérifie si la position donnée est valide, retourne 1 si bon
         }
         while (error != 1);
-        if (ft_checkHit(boats, bomb)) // renvoit 1 si le tir touche un navire
+        if (index = ft_checkHit(boat, bomb)) // renvoit 1 si le tir touche un navire
         {
             ++hits;
             grid = ft_hit(grid, bomb); // update la grid avec un touché et affiche un message indiquant le coup réussi
             printf("\nTouché !\n");
+            printf("index : %i\n", index);
+            nbHits[index] += 1;
+            printf("nbHits : %i\n", nbHits[index]);
+            if (((nbHits[index] == 8) && index == 1) || ((nbHits[index] == 12) && index == 2) || ((nbHits[index] == 16) && index == 3))
+                printf("Coulé !\n");
         }
         else
         {
@@ -54,8 +60,6 @@ int main()
         tmp[0] = bomb[0] + 64;
         tmp[1] = bomb[1];
         elem = ft_addElem(elem, tmp);
-        printf("bomb = %s, elem = %s\n", bomb, elem->data);
-   //     free(bomb);
         printf("\nIl vous reste %i coups.\n\n", 24 - coups);
         ft_printGrid(grid); // imprime la grille2
    }

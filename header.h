@@ -15,7 +15,7 @@ void ft_beginGame(void);
 void ft_printGrid(char **grid);
 int ft_checkBomb(t_list *elem, char *bomb);
 int ft_checkList(t_list *elem, char *cmp);
-int ft_checkHit(char **boats, char *bomb);
+int ft_checkHit(char **boat, char *bomb);
 char **ft_hit(char **grid, char *bomb);
 char **ft_miss(char **grid, char *bomb);
 void ft_putError(char *str);
